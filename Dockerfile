@@ -1,20 +1,20 @@
-# Utilise une image Node.js stable et légère
+# 1. Image de base : on utilise Node.js version 18 sur Alpine (très léger)
 FROM node:18-alpine
 
-# Définit le dossier de travail dans le conteneur
+# 2. Dossier de travail : où le code sera stocké dans le conteneur
 WORKDIR /app
 
-# Copie d'abord les fichiers de dépendances pour optimiser le cache
+# 3. Copie des fichiers de dépendances uniquement (optimise le cache)
 COPY package*.json ./
 
-# Installe les dépendances listées dans package.json
+# 4. Installation des dépendances (Express, SQLite3, etc.)
 RUN npm install
 
-# Copie tout le reste de ton code source dans le conteneur
+# 5. Copie de tout le reste de ton projet (HTML, CSS, JS, etc.)
 COPY . .
 
-# Indique que le conteneur écoute sur le port 3000
+# 6. Exposition du port 3000 (le port par défaut de ton server.js)
 EXPOSE 3000
 
-# Commande pour démarrer ton serveur Node.js
+# 7. Commande de lancement de l'application
 CMD ["npm", "start"]
