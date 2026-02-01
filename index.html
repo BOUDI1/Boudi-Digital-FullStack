@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOUDI DIGITAL - Web Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                B<span class="split-o">(</span><span class="split-arrow">&lt;</span><span class="split-o">)</span>UDI
+                DIGITAL
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#contact" class="btn-nav">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1><span class="highlight">WEB</span> DEVELOPER</h1>
+            <p>Transformez votre vision en réalité digitale. Sites web performants, designs percutants et solutions sur
+                mesure.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary">Démarrer un projet</a>
+                <a href="#services" class="btn btn-secondary">Mes Services</a>
+            </div>
+        </div>
+        <div class="hero-shape"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Mes Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Développement Web</h3>
+                    <p>Sites vitrines, e-commerce ou applications web complexes. Code propre et optimisé.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive Design</h3>
+                    <p>Une expérience utilisateur fluide sur tous les appareils : mobile, tablette et desktop.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Backend & API</h3>
+                    <p>Création de serveurs robustes et de bases de données (SQL/NoSQL) pour vos données.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2 class="section-title">À Propos</h2>
+                <p>Je suis un développeur web passionné, spécialisé dans la création de solutions digitales modernes.
+                    Avec une approche centrée sur l'utilisateur et une expertise technique solide, j'aide les
+                    entreprises à se démarquer en ligne.</p>
+                <p>Mon objectif : <strong>BOUDI DIGITAL</strong> n'est pas juste un nom, c'est une promesse de qualité
+                    et d'innovation.</p>
+            </div>
+            <div class="about-image">
+                <!-- Placeholder pour une image ou illustration -->
+                <div class="img-placeholder">
+                    <i class="fas fa-user-astronaut"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-moi</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>boudidigital@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+33 6 00 00 00 00</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Longjumeau,91160 France</p>
+                    </div>
+                </div>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required placeholder="Votre Nom">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder="Votre Email">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required placeholder="Votre Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <p id="form-status"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2024 BOUDI DIGITAL. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
