@@ -1,1 +1,61 @@
-test 1
+Voici une version complète et optimisée de ton fichier README.md. Elle intègre désormais les sections Docker et Déploiement, ce qui est indispensable pour valider tes compétences auprès du jury.
+
+Tu peux copier-coller ce contenu dans ton fichier README.md à la racine de ton projet :
+
+🚀 Boudi Digital Platform
+Boudi Digital est une application Full-Stack complète développée pour une micro-entreprise de services digitaux. Ce projet sert d'exemple concret pour la validation des activités 1 et 2 du titre professionnel.
+
+🛠️ Stack Technique
+Front-end : HTML5 sémantique, CSS3 (Variables, Flexbox, Grid), JavaScript ES6+.
+
+Back-end : Node.js, Express.js.
+
+Base de données : SQLite3 (Base de données relationnelle SQL embarquée).
+
+Conteneurisation : Docker.
+
+Déploiement : Alwaysdata (via FTP).
+
+✨ Fonctionnalités
+Interface Responsive : Design fluide adapté aux mobiles, tablettes et ordinateurs.
+
+Menu Mobile Interactif : Navigation fluide avec menu burger animé.
+
+Formulaire de Contact Asynchrone : Utilisation de l'API Fetch (Async/Await) pour envoyer des messages sans rechargement de page.
+
+Persistance des données : Stockage sécurisé des contacts dans un fichier .db via des requêtes SQL.
+
+🐳 Conteneurisation (Docker)
+Le projet inclut un Dockerfile permettant d'isoler l'application dans un conteneur pour garantir qu'elle fonctionne de la même manière partout.
+
+Pour construire et lancer l'image localement :
+
+Bash
+# Construire l'image
+docker build -t boudi-digital-app .
+
+# Lancer le conteneur
+docker run -d -p 3000:3000 --name boudi-container boudi-digital-app
+🌐 Déploiement (Alwaysdata)
+L'application est configurée pour être déployée sur un environnement de production Alwaysdata.
+
+Méthode : Transfert de fichiers via FTP (FileZilla).
+
+Serveur : Node.js configuré pour écouter sur le port dynamique fourni par l'hébergeur (process.env.PORT).
+
+Gestion de version : Code source hébergé et versionné sur GitHub.
+
+📦 Installation en local
+Clonage du dépôt :
+
+Bash
+git clone https://github.com/BOUDI1/Boudi-Digital-FullStack.git
+Installation des dépendances :
+
+Bash
+npm install
+Lancement du serveur :
+
+Bash
+npm start
+Accès à l'application sur http://localhost:3000.
