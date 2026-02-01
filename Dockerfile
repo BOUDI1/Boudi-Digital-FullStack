@@ -1,20 +1,20 @@
-# 1. On part d'une image Node.js officielle et légère
+# Utilise une image Node.js stable et légère
 FROM node:18-alpine
 
-# 2. On définit le dossier de travail dans le conteneur
+# Définit le dossier de travail dans le conteneur
 WORKDIR /app
 
-# 3. On copie les fichiers de configuration des dépendances
+# Copie d'abord les fichiers de dépendances pour optimiser le cache
 COPY package*.json ./
 
-# 4. On installe les outils nécessaires (Express, SQLite3)
+# Installe les dépendances listées dans package.json
 RUN npm install
 
-# 5. On copie tout le reste de ton code (index.html, server.js, etc.)
+# Copie tout le reste de ton code source dans le conteneur
 COPY . .
 
-# 6. On expose le port 3000 (celui utilisé par ton serveur)
+# Indique que le conteneur écoute sur le port 3000
 EXPOSE 3000
 
-# 7. La commande pour démarrer ton application
+# Commande pour démarrer ton serveur Node.js
 CMD ["npm", "start"]
