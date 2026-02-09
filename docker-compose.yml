@@ -1,7 +1,5 @@
-version: '3.8'
-
 services:
-  # Serveur Web PHP
+  # Serveur Web PHP (Apache)
   php-app:
     build: .
     container_name: boudi-php-container
@@ -12,18 +10,32 @@ services:
     depends_on:
       - mysql-db
       - mongo-db
+    networks:
+      - boudi-network
 
-  # Base de données SQL
+  # Base de données SQL (MySQL)
   mysql-db:
     image: mysql:8.0
+    container_name: boudi-mysql
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: boudi_sql
     ports:
       - "3306:3306"
+    networks:
+      - boudi-network
 
-  # Base de données NoSQL
+  # Base de données NoSQL (MongoDB)
   mongo-db:
     image: mongo:latest
+    container_name: boudi-mongo
+    restart: always
     ports:
       - "27017:27017"
+    networks:
+      - boudi-network
+
+networks:
+  boudi-network:
+    driver: bridge

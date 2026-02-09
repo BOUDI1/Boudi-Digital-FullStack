@@ -1,46 +1,68 @@
+🚀 Boudi Digital Platform - Backend Hybride
+Boudi Digital est une application Full-Stack robuste développée pour une micro-entreprise de services digitaux. Ce projet valide les compétences des Activités 1 et 2 du titre professionnel DWWM.
 
-🚀 Boudi Digital Platform
-Boudi Digital est une application Full-Stack complète développée pour une micro-entreprise de services digitaux. Ce projet sert d'exemple concret pour la validation des activités 1 et 2 du titre professionnel.
+L'innovation majeure de cette version réside dans son architecture de données hybride, utilisant à la fois du SQL (relationnel) et du NoSQL (orienté document) pour optimiser le traitement et le monitoring des données.
 
 🛠️ Stack Technique
-Front-end : HTML5 sémantique, CSS3 (Variables, Flexbox, Grid), JavaScript ES6+.
+Front-end : HTML5 sémantique, CSS3 (Flexbox/Grid), JavaScript ES6+ (Fetch API).
 
-Back-end : Node.js, Express.js.
+Back-end : PHP 8.2 (Apache).
 
-Base de données : SQLite3 (Base de données relationnelle SQL embarquée).
+Bases de données :
 
-Conteneurisation : Docker.
+MySQL 8.0 : Stockage structuré des contacts clients.
 
-Déploiement : Alwaysdata (via FTP).
+MongoDB : Logging asynchrone de l'activité utilisateur (NoSQL).
 
-✨ Fonctionnalités
-Interface Responsive : Design fluide adapté aux mobiles, tablettes et ordinateurs.
+Infrastructure : Docker & Docker Compose pour l'orchestration des services.
 
-Menu Mobile Interactif : Navigation fluide avec menu burger animé.
+Gestion des dépendances : Composer (SDK MongoDB).
 
-Formulaire de Contact Asynchrone : Utilisation de l'API Fetch (Async/Await) pour envoyer des messages sans rechargement de page.
+✨ Fonctionnalités Clés
+Interface Responsive : Design fluide adapté à tous les terminaux.
 
-Persistance des données : Stockage sécurisé des contacts dans un fichier .db via des requêtes SQL.
+Formulaire de Contact Asynchrone : Envoi de données via l'API Fetch sans rechargement de page.
 
-🐳 Conteneurisation (Docker)
-Le projet inclut un Dockerfile permettant d'isoler l'application dans un conteneur pour garantir qu'elle fonctionne de la même manière partout.
+Double Persistance :
 
-Pour construire et lancer l'image localement :
+Enregistrement sécurisé dans MySQL via des requêtes préparées PDO.
 
+Génération d'un log technique dans MongoDB pour le monitoring technique.
+
+Environnement Isolé : Déploiement via Docker garantissant la portabilité du code.
+
+🐳 Installation et Lancement (Docker)
+1. Pré-requis
+Docker Desktop installé.
+
+Git installé.
+
+2. Clonage et Démarrage
 Bash
-# Construire l'image
-docker build -t boudi-digital-app .
+# Cloner le projet
+git clone https://github.com/BOUDI1/Boudi-Digital-FullStack.git
+cd Boudi-digital-FullStack
 
-# Lancer le conteneur
-docker run -d -p 3000:3000 --name boudi-container boudi-digital-app
-🌐 Déploiement (Alwaysdata)
-L'application est configurée pour être déployée sur un environnement de production Alwaysdata.
+# Lancer les conteneurs (Build l'image PHP et lance les DB)
+docker compose up -d --build
 
-Méthode : Transfert de fichiers via FTP (FileZilla).
+# Installer les dépendances PHP (Composer)
+docker compose exec php-app composer install --ignore-platform-req=ext-mongodb
+3. Accès
+Application : http://localhost:8080.
 
-Serveur : Node.js configuré pour écouter sur le port dynamique fourni par l'hébergeur (process.env.PORT).
+MySQL (SQL) : Port 3306 (User: root / Pass: root).
 
-Gestion de version : Code source hébergé et versionné sur GitHub.
+MongoDB (NoSQL) : Port 27017.
+
+📁 Structure du Projet
+/api : Scripts PHP de traitement et connexion aux bases.
+
+/images : Ressources visuelles et photo de profil.
+
+Dockerfile : Configuration de l'environnement PHP personnalisé.
+
+docker-compose.yml : Orchestration des 3 conteneurs (App, MySQL, Mongo).
 
 📦 Installation en local
 Clonage du dépôt :
