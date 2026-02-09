@@ -1,12 +1,29 @@
 version: '3.8'
 
 services:
-  web-app:
+  # Serveur Web PHP
+  php-app:
     build: .
-    container_name: boudi-container
+    container_name: boudi-php-container
     ports:
-      - "3000:3000"
+      - "8080:80"
     volumes:
-      - .:/app
-      - /app/node_modules
-    restart: always
+      - .:/var/www/html
+    depends_on:
+      - mysql-db
+      - mongo-db
+
+  # Base de données SQL
+  mysql-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: boudi_sql
+    ports:
+      - "3306:3306"
+
+  # Base de données NoSQL
+  mongo-db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
