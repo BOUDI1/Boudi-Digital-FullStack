@@ -288,6 +288,15 @@ ul {
     color: #fff;
 }
 
+.profile-img {
+    width: 300px; /* Largeur de la photo */
+    height: 300px; /* Hauteur de la photo */
+    object-fit: cover; /* Recadre l'image pour qu'elle remplisse le cadre sans être déformée */
+    border-radius: 50%; /* C'est ce qui transforme le carré en rond parfait */
+    border: 10px solid var(--primary-color); /* La bordure jaune épaisse */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* La petite ombre en dessous */
+}
+
 /* Contact Section */
 #contact {
     padding: 5rem 0;
