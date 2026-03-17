@@ -1,3 +1,4 @@
+/* --- VARIABLES & CONFIGURATION --- */
 :root {
     --primary-color: #FFD700; /* Jaune Vif */
     --secondary-color: #FF4500; /* Rouge Orangé */
@@ -8,13 +9,12 @@
     --font-title: 'Montserrat', sans-serif;
 }
 
-/* --- RESET & BASE --- */
 html {
     scroll-behavior: smooth;
 }
 
 section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 80px; /* Évite que la navbar cache le titre des sections */
 }
 
 * {
@@ -28,6 +28,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-color);
+    overflow-x: hidden;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -63,7 +64,7 @@ ul { list-style: none; }
 .burger { display: none; cursor: pointer; }
 .burger div { width: 25px; height: 3px; background-color: #fff; margin: 5px; transition: 0.3s; }
 
-/* --- HERO --- */
+/* --- HERO SECTION --- */
 #hero {
     height: 100vh; background-color: var(--primary-color);
     display: flex; align-items: center; justify-content: center;
@@ -77,7 +78,7 @@ ul { list-style: none; }
 .btn-secondary { background-color: var(--dark-color); color: #fff; }
 .hero-btns .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-/* --- SECTIONS --- */
+/* --- SECTIONS GÉNÉRALES --- */
 #services, #about, #contact { padding: 5rem 0; background-color: #fff; }
 .section-title { text-align: center; font-family: var(--font-title); font-size: 2.5rem; margin-bottom: 3rem; color: var(--dark-color); }
 .section-title::after { content: ''; display: block; width: 50px; height: 4px; background-color: var(--primary-color); margin: 10px auto 0; }
@@ -92,7 +93,7 @@ ul { list-style: none; }
 .about-text, .about-image { flex: 1; }
 .profile-img { width: 300px; height: 300px; object-fit: cover; border-radius: 50%; border: 10px solid var(--primary-color); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-/* --- JOTFORM & CONTACT LUXE --- */
+/* --- FORMULAIRE JOTFORM PREMIUM --- */
 .contact-wrapper { display: flex; gap: 50px; }
 .contact-info { flex: 1; }
 .info-item { display: flex; align-items: center; margin-bottom: 20px; font-size: 1.1rem; }
@@ -103,36 +104,27 @@ ul { list-style: none; }
     background: #fff; 
     padding: 40px; 
     border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Effet de profondeur */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
 }
 
-/* Labels stylisés */
 .jotform-container .form-label {
-    display: block;
-    margin-bottom: 8px;
+    display: block; margin-bottom: 8px;
     font-family: var(--font-title) !important;
-    font-weight: 700 !important;
-    font-size: 0.85rem !important;
-    color: var(--dark-color) !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-weight: 700 !important; font-size: 0.85rem !important;
+    color: var(--dark-color) !important; text-transform: uppercase; letter-spacing: 1px;
 }
 
-/* Champs de saisie modernes */
 .jotform-container .form-textbox, 
 .jotform-container .form-textarea,
 .jotform-container input,
 .jotform-container textarea {
     color: #1A1A1A !important; 
     background-color: #fcfcfc !important;
-    border: 2px solid #eee !important; 
-    padding: 15px !important; 
-    border-radius: 8px !important; 
-    font-family: var(--font-main) !important;
+    border: 2px solid #eee !important; padding: 15px !important; 
+    border-radius: 8px !important; font-family: var(--font-main) !important;
     transition: 0.3s ease;
 }
 
-/* Effet Focus (clic) sur les champs */
 .jotform-container .form-textbox:focus, 
 .jotform-container .form-textarea:focus {
     border-color: var(--primary-color) !important;
@@ -144,19 +136,11 @@ ul { list-style: none; }
 .fullname-wrapper { display: flex; gap: 15px; width: 100%; }
 .fullname-wrapper input { flex: 1; }
 
-/* Bouton d'envoi Premium */
 .jotform-container .form-submit-button {
-    background-color: var(--secondary-color) !important; 
-    color: #fff !important;
-    padding: 1.2rem !important; 
-    border-radius: 8px !important; 
-    border: none !important;
-    cursor: pointer; 
-    width: 100%; 
-    font-family: var(--font-title) !important;
-    font-weight: 900 !important;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    background-color: var(--secondary-color) !important; color: #fff !important;
+    padding: 1.2rem !important; border-radius: 8px !important; border: none !important;
+    cursor: pointer; width: 100%; font-family: var(--font-title) !important;
+    font-weight: 900 !important; text-transform: uppercase; letter-spacing: 2px;
     transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -166,15 +150,11 @@ ul { list-style: none; }
     box-shadow: 0 10px 20px rgba(255, 69, 0, 0.25) !important;
 }
 
-/* Zone de téléchargement stylisée */
+/* Zone Upload de fichier */
 .jotform-container .form-upload-multiple {
-    display: block !important; 
-    padding: 40px 20px !important; 
-    border: 2px dashed #ccc !important;
-    background: #fafafa !important;
-    border-radius: 12px !important; 
-    text-align: center; 
-    transition: 0.3s;
+    display: block !important; padding: 40px 20px !important; 
+    border: 2px dashed #ccc !important; background: #fafafa !important;
+    border-radius: 12px !important; text-align: center; transition: 0.3s;
 }
 
 .jotform-container .form-upload-multiple:hover {
@@ -187,7 +167,31 @@ ul { list-style: none; }
     display: block; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px;
 }
 
-/* --- RESPONSIVE --- */
+/* --- FOOTER CENTRÉ --- */
+footer {
+    background-color: var(--dark-color);
+    color: #fff;
+    padding: 3rem 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre horizontalement */
+    justify-content: center;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a { font-size: 1.2rem; transition: 0.3s; }
+.social-links a:hover { color: var(--primary-color); transform: translateY(-3px); }
+
+/* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
     .nav-links {
         position: absolute; right: 0; height: 92vh; top: 8vh; background-color: var(--dark-color);
@@ -204,7 +208,7 @@ ul { list-style: none; }
     .jotform-container { padding: 25px; }
 }
 
-/* Animation Burger */
+/* Animation Menu Burger */
 .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
 .toggle .line2 { opacity: 0; }
 .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
