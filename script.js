@@ -4,7 +4,6 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialisation des modules essentiels
     initNavigation();
 });
 
@@ -24,24 +23,25 @@ function initNavigation() {
 
         // Animation des liens avec un délai progressif
         navLinks.forEach((link, index) => {
-            link.style.animation = link.style.animation 
-                ? '' 
-                : `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+            if (link.style.animation) {
+                link.style.animation = '';
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+            }
         });
 
         // Animation de l'icône burger
         burger.classList.toggle('toggle');
     });
-}
-/* --- RESPONSIVE FORMULAIRE --- */
-@media (max-width: 480px) {
-    .fullname-wrapper {
-        flex-direction: column !important; /* Empile le prénom et le nom */
-        gap: 15px !important;
-    }
-    
-    .jotform-container .form-textbox, 
-    .jotform-container .form-textarea {
-        width: 100% !important; /* Force la pleine largeur */
-    }
+
+    // FERMER LE MENU QUAND ON CLIQUE SUR UN LIEN
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (nav.classList.contains('nav-active')) {
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+                navLinks.forEach(l => l.style.animation = '');
+            }
+        });
+    });
 }
