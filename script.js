@@ -1,12 +1,11 @@
 /**
  * BOUDI DIGITAL - Script Principal
- * Gestion de l'interface utilisateur et des appels API asynchrones.
+ * Gestion de l'interface utilisateur.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialisation des modules
+    // Initialisation des modules essentiels
     initNavigation();
-    initContactForm();
 });
 
 /**
@@ -34,57 +33,15 @@ function initNavigation() {
         burger.classList.toggle('toggle');
     });
 }
-
-/**
- * Gestion du formulaire de contact
- * Envoi des données vers le backend PHP via Fetch API
- */
-function initContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    const statusDisplay = document.getElementById('form-status');
-
-    if (!contactForm) return;
-
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        // Extraction et préparation des données
-        const payload = {
-            name: document.getElementById('name').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            message: document.getElementById('message').value.trim()
-        };
-
-        displayStatus(statusDisplay, 'Envoi du message...', 'blue');
-
-        try {
-            // Appel vers le point d'entrée PHP (au lieu de localhost:3000)
-            const response = await fetch('api/contact.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                displayStatus(statusDisplay, 'Message envoyé avec succès !', 'green');
-                contactForm.reset();
-            } else {
-                displayStatus(statusDisplay, `Erreur : ${result.error || 'Serveur indisponible'}`, 'red');
-            }
-        } catch (error) {
-            console.error('Erreur technique :', error);
-            displayStatus(statusDisplay, 'Impossible de joindre le serveur.', 'red');
-        }
-    });
-}
-
-/**
- * Utilitaire de mise à jour de l'interface utilisateur
- */
-function displayStatus(element, message, color) {
-    if (!element) return;
-    element.textContent = message;
-    element.style.color = color;
+/* --- RESPONSIVE FORMULAIRE --- */
+@media (max-width: 480px) {
+    .fullname-wrapper {
+        flex-direction: column !important; /* Empile le prénom et le nom */
+        gap: 15px !important;
+    }
+    
+    .jotform-container .form-textbox, 
+    .jotform-container .form-textarea {
+        width: 100% !important; /* Force la pleine largeur */
+    }
 }
