@@ -99,12 +99,12 @@ ul { list-style: none; }
 .info-item { display: flex; align-items: center; margin-bottom: 20px; font-size: 1.1rem; }
 .info-item i { font-size: 1.5rem; color: var(--secondary-color); margin-right: 15px; width: 30px; text-align: center; }
 
-.jotform-container { 
-    flex: 1; 
-    background: #fff; 
-    padding: 40px; 
+.jotform-container {
+    flex: 1;
+    background: #fff;
+    padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
 
 .jotform-container .form-label {
@@ -114,18 +114,18 @@ ul { list-style: none; }
     color: var(--dark-color) !important; text-transform: uppercase; letter-spacing: 1px;
 }
 
-.jotform-container .form-textbox, 
+.jotform-container .form-textbox,
 .jotform-container .form-textarea,
 .jotform-container input,
 .jotform-container textarea {
-    color: #1A1A1A !important; 
+    color: #1A1A1A !important;
     background-color: #fcfcfc !important;
-    border: 2px solid #eee !important; padding: 15px !important; 
+    border: 2px solid #eee !important; padding: 15px !important;
     border-radius: 8px !important; font-family: var(--font-main) !important;
     transition: 0.3s ease;
 }
 
-.jotform-container .form-textbox:focus, 
+.jotform-container .form-textbox:focus,
 .jotform-container .form-textarea:focus {
     border-color: var(--primary-color) !important;
     background-color: #fff !important;
@@ -152,7 +152,7 @@ ul { list-style: none; }
 
 /* Zone Upload de fichier */
 .jotform-container .form-upload-multiple {
-    display: block !important; padding: 40px 20px !important; 
+    display: block !important; padding: 40px 20px !important;
     border: 2px dashed #ccc !important; background: #fafafa !important;
     border-radius: 12px !important; text-align: center; transition: 0.3s;
 }
